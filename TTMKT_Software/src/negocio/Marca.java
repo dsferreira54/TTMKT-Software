@@ -6,10 +6,12 @@ public class Marca {
 	private String telefone = "";
 	private String email = "";
 	private String nome = "";
+	
 	//MÉTODO CONSTRUTOR VAZIO
 	public Marca() {
 		super();
 	}
+	
 	//MÉTODO CONSTRUTOR CHEIO
 	public Marca(String cnpjDaMarca, String telefone, String email, String nome) {
 		super();
@@ -18,6 +20,7 @@ public class Marca {
 		this.email = email;
 		this.nome = nome;
 	}
+	
 	//METODOS GET/SET DA CLASSE
 	public String getCnpjDaMarca() {
 		return cnpjDaMarca;
@@ -50,6 +53,4 @@ public class Marca {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	
-	
 }

@@ -9,12 +9,14 @@ public class SupermercadoContrato {
 	public SupermercadoContrato() {
 		super();
 	}
+	
 	//MÉTODO CONSTRUTOR CHEIO
 	public SupermercadoContrato(String cnpjDoSupermercado, String codigoDoContrato) {
 		super();
 		this.cnpjDoSupermercado = cnpjDoSupermercado;
 		this.codigoDoContrato = codigoDoContrato;
 	}
+	
 	//METODOS GET/SET DA CLASSE
 	public String getCnpjDoSupermercado() {
 		return cnpjDoSupermercado;
@@ -31,6 +33,4 @@ public class SupermercadoContrato {
 	public void setCodigoDoContrato(String codigoDoContrato) {
 		this.codigoDoContrato = codigoDoContrato;
 	}
-	
-	
 }
