@@ -1,5 +1,9 @@
 package negocio;
 
+import java.util.Collection;
+
+import persistencia.MarcaDAO;
+
 public class Marca {
 	//DECLARAÇÃO DE VARIÁVEIS
 	private String cnpjDaMarca = "";
@@ -52,5 +56,15 @@ public class Marca {
 
 	public void setNome(String nome) {
 		this.nome = nome;
+	}
+	
+	//MÉTODO GET TODOS DO BANCO DE DADOS
+	public static Collection<Marca> getTodos() throws Exception {
+		return new MarcaDAO().getTodos();		
+	}
+	
+	//MÉTODO PERSISTIR NO BANCO DE DADOS
+	public void persistir() throws Exception {
+		new MarcaDAO().persistir(this);
 	}
 }
