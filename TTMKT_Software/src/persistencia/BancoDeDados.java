@@ -17,7 +17,7 @@ public class BancoDeDados {
 		objConexao = DriverManager.getConnection("jdbc:mysql://localhost:3306/ttmktdatabase?"
 															+ "serverTimezone=UTC&"
 															+ "user=root&"
-															+ "password=&"
+															+ "password=123456&"
 															+ "useSSL=false");
 	}
 	

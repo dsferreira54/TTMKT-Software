@@ -12,6 +12,5 @@ public class TesteConsultar {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
 	}
 }
