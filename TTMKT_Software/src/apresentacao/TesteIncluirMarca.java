@@ -2,7 +2,7 @@ package apresentacao;
 
 import negocio.Marca;
 
-public class TesteIncluir {
+public class TesteIncluirMarca {
 	public static void main(String[] args) {
 		Marca objMarca1 = new Marca();
 		
