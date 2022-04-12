@@ -1,5 +1,9 @@
 package negocio;
 
+import java.util.Collection;
+
+import persistencia.ProdutoMarcaDAO;
+
 public class ProdutoMarca {
 	//DECLARAÇÃO DE VARIÁVEIS
 	private String codigoProdutoMarca = "";
@@ -52,5 +56,15 @@ public class ProdutoMarca {
 
 	public void setMedida(String medida) {
 		this.medida = medida;
-	}	
+	}
+	
+	//MÉTODO GET TODOS DO BANCO DE DADOS
+	public static Collection<ProdutoMarca> getTodos() throws Exception {
+		return new ProdutoMarcaDAO().getTodos();		
+	}
+	
+	//MÉTODO PERSISTIR NO BANCO DE DADOS
+	public void persistir() throws Exception {
+		new ProdutoMarcaDAO().persistir(this);
+	}
 }

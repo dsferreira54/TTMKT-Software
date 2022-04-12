@@ -1,3 +1,4 @@
+
 package persistencia;
 
 import java.sql.PreparedStatement;
@@ -15,8 +16,8 @@ public class ProdutoMarcaDAO {
 	private ResultSet objCursor = null;
 	
 	//MÉTODO GET TODOS
-	public Collection<Marca> getTodos() throws Exception {
-		ArrayList<Marca> retorno = new ArrayList<Marca>();
+	public Collection<ProdutoMarca> getTodos() throws Exception {
+		ArrayList<ProdutoMarca> retorno = new ArrayList<ProdutoMarca>();
 		
 		objBanco = new BancoDeDados();
 		
@@ -27,10 +28,10 @@ public class ProdutoMarcaDAO {
 		objCursor = objExecucao.executeQuery();
 		
 		while (objCursor.next()) {
-			retorno.add(new Marca(objCursor.getString("CODIGO_PRODUTO_MARCA"),
-								  objCursor.getString("CODIGO_PRODUTO"),
-								  objCursor.getString("CNPJ_MARCA"),
-								  objCursor.getString("MEDIDA")));
+			retorno.add(new ProdutoMarca(objCursor.getString("CODIGO_PRODUTO_MARCA"),
+								  		 objCursor.getString("CODIGO_PRODUTO"),
+								  		 objCursor.getString("CNPJ_MARCA"),
+								  		 objCursor.getString("MEDIDA")));
 		}
 		
 		objBanco.desconectar();

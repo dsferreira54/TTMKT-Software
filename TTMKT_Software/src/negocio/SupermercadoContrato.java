@@ -1,5 +1,9 @@
 package negocio;
 
+import java.util.Collection;
+
+import persistencia.SupermercadoContratoDAO;
+
 public class SupermercadoContrato {
 	//DECLARAÇÃO DE VARIÁVEIS
 	private String cnpjDoSupermercado = "";
@@ -32,5 +36,16 @@ public class SupermercadoContrato {
 
 	public void setCodigoDoContrato(String codigoDoContrato) {
 		this.codigoDoContrato = codigoDoContrato;
+	}
+
+
+//MÉTODO GET TODOS DO BANCO DE DADOS
+	public static Collection<SupermercadoContrato> getTodos() throws Exception {
+		return new SupermercadoContratoDAO().getTodos();		
+	}
+	
+	//MÉTODO PERSISTIR NO BANCO DE DADOS
+	public void persistir() throws Exception {
+		new SupermercadoContratoDAO().persistir(this);
 	}
 }

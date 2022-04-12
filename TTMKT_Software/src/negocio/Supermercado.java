@@ -1,5 +1,9 @@
 package negocio;
 
+import java.util.Collection;
+
+import persistencia.SupermercadoDAO;
+
 public class Supermercado {
 	//DECLARAÇÃO DE VARIÁVEIS
 	private String cnpjDoSupermercado = "";
@@ -74,4 +78,14 @@ public class Supermercado {
 	public void setTelefone(String telefone) {
 		this.telefone = telefone;
 	}
-}
+	
+	//MÉTODO GET TODOS DO BANCO DE DADOS
+		public static Collection<Supermercado> getTodos() throws Exception {
+			return new SupermercadoDAO().getTodos();		
+		}
+		
+		//MÉTODO PERSISTIR NO BANCO DE DADOS
+		public void persistir() throws Exception {
+			new SupermercadoDAO().persistir(this);
+		}
+	}
