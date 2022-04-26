@@ -1,5 +1,6 @@
 package negocio;
 
+import java.util.Calendar;
 import java.util.Date;
 
 public class Funcionario {
@@ -146,4 +147,98 @@ public class Funcionario {
 	public void setPrimeiroNome(String primeiroNome) {
 		this.primeiroNome = primeiroNome;
 	}
+	
+	//MÉTODOS DE DATA DE ADMISSÃO
+	public String getDataDeAdmissaoParaApresentacao() {
+		String retorno = "";
+		
+		Calendar objCalendario = Calendar.getInstance();
+		objCalendario.setTime(getDataDeAdmissao());
+		
+		retorno = objCalendario.get(Calendar.DAY_OF_MONTH) + "/" +
+				  (objCalendario.get(Calendar.MONTH) + 1) + "/" +
+				  objCalendario.get(Calendar.YEAR);
+				  
+		return retorno;
+	}
+	
+	public String getDataDeAdmissaoParaPersistencia() {
+		String retorno = "";
+		
+		Calendar objCalendario = Calendar.getInstance();
+		objCalendario.setTime(getDataDeAdmissao());
+		
+		retorno = objCalendario.get(Calendar.YEAR) + "-" +
+				  (objCalendario.get(Calendar.MONTH) + 1) + "-" +
+				  objCalendario.get(Calendar.DAY_OF_MONTH);
+				  
+		return retorno;
+	}
+
+	public void setDataDeAdmissaoDaApresentaca(String data) {
+		Calendar objCalendario = Calendar.getInstance();
+		
+		objCalendario.set(Calendar.DAY_OF_MONTH, Integer.parseInt(data.substring(0, 2)));
+		objCalendario.set(Calendar.MONTH, Integer.parseInt(data.substring(3, 5)) - 1);
+		objCalendario.set(Calendar.YEAR, Integer.parseInt(data.substring(6)));
+		
+		setDataDeAdmissao(objCalendario.getTime());
+	}
+	
+	public void setDataDeAdmissaoDaPersistencia(String data) {
+		Calendar objCalendario = Calendar.getInstance();
+		
+		objCalendario.set(Calendar.YEAR, Integer.parseInt(data.substring(0, 4)));
+		objCalendario.set(Calendar.MONTH, Integer.parseInt(data.substring(5, 7)) - 1);
+		objCalendario.set(Calendar.DAY_OF_MONTH, Integer.parseInt(data.substring(8)));
+		
+		setDataDeAdmissao(objCalendario.getTime());
+	}
+	
+	//MÉTODOS DE DATA DE NASCIMENTO
+	public String getDataDeNascimentoParaApresentacao() {
+		String retorno = "";
+		
+		Calendar objCalendario = Calendar.getInstance();
+		objCalendario.setTime(getDataDeNascimento());
+		
+		retorno = objCalendario.get(Calendar.DAY_OF_MONTH) + "/" +
+				  (objCalendario.get(Calendar.MONTH) + 1) + "/" +
+				  objCalendario.get(Calendar.YEAR);
+				  
+		return retorno;
+	}
+	
+	public String getDataDeNascimentoParaPersistencia() {
+		String retorno = "";
+		
+		Calendar objCalendario = Calendar.getInstance();
+		objCalendario.setTime(getDataDeNascimento());
+		
+		retorno = objCalendario.get(Calendar.YEAR) + "-" +
+				  (objCalendario.get(Calendar.MONTH) + 1) + "-" +
+				  objCalendario.get(Calendar.DAY_OF_MONTH);
+				  
+		return retorno;
+	}
+
+	public void setDataDeNascimentoDaApresentaca(String data) {
+		Calendar objCalendario = Calendar.getInstance();
+		
+		objCalendario.set(Calendar.DAY_OF_MONTH, Integer.parseInt(data.substring(0, 2)));
+		objCalendario.set(Calendar.MONTH, Integer.parseInt(data.substring(3, 5)) - 1);
+		objCalendario.set(Calendar.YEAR, Integer.parseInt(data.substring(6)));
+		
+		setDataDeNascimento(objCalendario.getTime());
+	}
+	
+	public void setDataDeNascimentoDaPersistencia(String data) {
+		Calendar objCalendario = Calendar.getInstance();
+		
+		objCalendario.set(Calendar.YEAR, Integer.parseInt(data.substring(0, 4)));
+		objCalendario.set(Calendar.MONTH, Integer.parseInt(data.substring(5, 7)) - 1);
+		objCalendario.set(Calendar.DAY_OF_MONTH, Integer.parseInt(data.substring(8)));
+		
+		setDataDeNascimento(objCalendario.getTime());
+	}	
 }
