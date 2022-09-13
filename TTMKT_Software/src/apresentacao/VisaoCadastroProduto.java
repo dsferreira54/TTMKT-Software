@@ -1,99 +1,88 @@
 package apresentacao;
 
-import javax.swing.ButtonGroup;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 
-public class VisaoCadastroProduto extends JFrame {
-	// Propriedades da classe
-	private static final long SerialVersionUID = 1L;
+public class VisaoCadastroProduto extends JFrame{
+	//PROPRIEDADES DA CLASSE
+	private static final long serialVersionUID = 1L;
 	
-	//PAINEL
 	private JPanel objPainel = new JPanel();
 	
-	//MARCA
 	private JLabel lblMarca = new JLabel("Marca");
-	private ButtonGroup grpMarca = new ButtonGroup();
-	private JRadioButton optPatagonia = new JRadioButton("Patagonia");
-	private JRadioButton optDove = new JRadioButton("Dove");
+	private JComboBox<String> cboMarca = new JComboBox<String>();
 	
-	//NOME DO PRDOUTO
 	private JLabel lblNomeProduto = new JLabel("Nome do Produto");
 	private JTextField txtNomeProduto = new JTextField();
 	
-	//MEDIDA
 	private JLabel lblMedida = new JLabel("Medida");
 	private JTextField txtMedida = new JTextField();
 	
-	//FOTO DO PRODUTO
 	private JLabel lblFotoProduto = new JLabel("Foto do Produto");
 	private JTextField txtFotoProduto = new JTextField();
-	
-	//BOTÃO GRAVAR
+			
 	private JButton btnGravar = new JButton("Gravar");
+	private JButton btnLimpar = new JButton("Limpar");
+	private JButton btnSair = new JButton("Sair");
 	
-	// Métodos principal da execução da classe
+	//MÉTODO PRINCIPAL DE EXECUÇÃO DA CLASSE
 	public static void main(String[] args) {
 		new VisaoCadastroProduto().setVisible(true);
 	}
 	
-	// Método construtor vazio da classe
+	//MÉTODO CONSTRUTOR VAZIO DA CLASSE
 	public VisaoCadastroProduto() {
-		//Configuração da minha janela
-		setTitle("Cadastro de Produtos");
-		setSize(1024, 576);
+		//CONFIGURAÇÃO DA JANELA
+		setTitle("Cadastro de Produto");
+		setSize(800, 600);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setLocationRelativeTo(null);
 		
-		//CONFIGURAÇÕES DO PAINEL
-		setContentPane(objPainel);
+		//CONFIGURAÇÃO DO PAINEL
 		objPainel.setLayout(null);
+		setContentPane(objPainel);
 		
-		//CONFIGURAÇÃO MARCA
-		lblMarca.setBounds(20, 20, 50, 20);
+		// Marca
+		lblMarca.setBounds(20, 20, 200, 20);
 		objPainel.add(lblMarca);
+		cboMarca.setBounds(20, 40, 400, 30);
+		objPainel.add(cboMarca);
+		cboMarca.addItem("");
 		
-		grpMarca.add(optPatagonia);
-		grpMarca.add(optDove);
-		
-		optPatagonia.setSelected(true);
-		
-		optPatagonia.setBounds(20, 60, 90, 20);
-		objPainel.add(optPatagonia);
-		
-		optDove.setBounds(120, 60, 100, 20);
-		objPainel.add(optDove);
-		
-		//CONFIGURAÇÃO NOME DO PRODUTO
-		lblNomeProduto.setBounds(20, 80, 80, 20);
+		// Nome do produto
+		lblNomeProduto.setBounds(20, 100, 200, 20);
 		objPainel.add(lblNomeProduto);
-				
-		txtNomeProduto.setBounds(20, 100, 400, 20);
+		txtNomeProduto.setBounds(20, 120, 400, 20);
 		objPainel.add(txtNomeProduto);
-		
-		//CONFIGURAÇÃO MEDIDA
-		lblMedida.setBounds(20, 140, 90, 20);
+				
+		// Medida
+		lblMedida.setBounds(20, 180, 200, 20);
 		objPainel.add(lblMedida);
-						
-		txtMedida.setBounds(20, 160, 400, 20);
+		txtMedida.setBounds(20, 200, 400, 20);
 		objPainel.add(txtMedida);
 		
-		//CONFIGURAÇÃO FOTO DO PRODUTO
-		lblFotoProduto.setBounds(20, 200, 100, 20);
+		// Foto do produto
+		lblFotoProduto.setBounds(20, 260, 200, 20);
 		objPainel.add(lblFotoProduto);
-								
-		txtFotoProduto.setBounds(20, 220, 400, 20);
+		txtFotoProduto.setBounds(20, 280, 400, 20);
 		objPainel.add(txtFotoProduto);
-		
-		//BOTÃO GRAVAR
-		
 				
-		btnGravar.setBounds(470, 500, 80, 20);
+		// Botôes 
+		btnGravar.setBounds(450, 500, 100, 30);
+		btnGravar.addActionListener(new ControladorGravarCadastroProduto(cboMarca, cboMarca, txtNomeProduto, txtMedida, txtFotoProduto));
 		objPainel.add(btnGravar);
 		
-	}
-}
+		btnLimpar.setBounds(550, 500, 100, 30);
+		btnLimpar.addActionListener(new ControladorLimparCadastroProduto(cboMarca, cboMarca, txtNomeProduto, txtMedida, txtFotoProduto));
+		objPainel.add(btnLimpar);
+		
+		btnSair.setBounds(650, 500, 100, 30);
+		btnSair.addActionListener(new ControladorSairCadastroProduto());
+		objPainel.add(btnSair);
+		
+			}
+		}
